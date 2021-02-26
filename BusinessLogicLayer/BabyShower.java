@@ -1,9 +1,9 @@
 package BusinessLogicLayer;
 import java.util.*;
 
-public class Baptism implements Events{
+public class BabyShower implements Events{
     
-    String eventType = "Baptism";
+    String eventType = "Baby Shower";
     String eventDateandTime;
     String eventAddress;
     String eventTheme;
@@ -11,9 +11,7 @@ public class Baptism implements Events{
     int numberOfChildren;
     
     //menu
-    String adultMeal;
-    String kidsMeal;
-    String Desert;
+    String BabyShowerBouquet;
 
 	@Override
 	public void getdetails() 
@@ -37,14 +35,8 @@ public class Baptism implements Events{
 
 
         System.out.println("==================================Menu:=============================");
-        System.out.println("Do you want kids preset menu? ");
-        adultMeal = scn.nextLine();
-
-        System.out.println("Do you want adult preset menu? ");
-        kidsMeal = scn.nextLine();
-
-        System.out.println("Do you want desert? ");
-        Desert = scn.nextLine();
+        System.out.println("Do you want the preset Baby shower snack menu? ");
+        BabyShowerBouquet = scn.nextLine();
 
         scn.close();
     }

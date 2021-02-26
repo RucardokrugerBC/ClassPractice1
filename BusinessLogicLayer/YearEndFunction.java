@@ -5,7 +5,11 @@ public class YearEndFunction implements Events{
     
     String eventType = "Year-end Function";
     String eventDateandTime;
-    String eventAddress;
+    String eventCity;
+    String eventArea;
+    String eventStreet;
+    String eventAdress;
+    String eventHuoseNumber;
     String eventTheme;
     int numberOfAdults;
     int numberOfChildren;
@@ -23,8 +27,17 @@ public class YearEndFunction implements Events{
         System.out.println("Date & Time: ");
         eventDateandTime = scn.nextLine();
 
-        System.out.println("Address: ");
-        eventAddress = scn.nextLine();
+        //Get adress Details
+        System.out.println("City: ");
+        eventCity = scn.nextLine();
+        System.out.println("Area: ");
+        eventArea = scn.nextLine();      
+        System.out.println("Street: ");
+        eventStreet = scn.nextLine();
+        System.out.println("House Number: ");
+        eventHuoseNumber = scn.nextLine();
+        //Compress adress
+        eventAdress = eventCity + " , " + eventArea + " , " + eventStreet + " , " + eventHuoseNumber + ". ";
 
         System.out.println("How many adults?");
         numberOfAdults = scn.nextInt();

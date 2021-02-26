@@ -1,12 +1,11 @@
 package BusinessLogicLayer;
 import java.util.*;
 
-public class BirthDay implements Events{
+public class Wedding implements Events{
     
-    String eventType = "BirthDay";
+    String eventType = "Wedding";
     String eventDateandTime;
     String eventAddress;
-    String eventTheme;
     int numberOfAdults;
     int numberOfChildren;
     
@@ -32,10 +31,6 @@ public class BirthDay implements Events{
         System.out.println("How many children?");
         numberOfChildren = scn.nextInt();
 
-        System.out.println("Do you want a theme?(Yes/No)");
-        eventTheme = scn.nextLine();
-
-
         System.out.println("==================================Menu:=============================");
         System.out.println("Do you want kids preset menu? ");
         adultMeal = scn.nextLine();
@@ -48,3 +43,4 @@ public class BirthDay implements Events{
 
         scn.close();
     }
+}

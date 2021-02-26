@@ -46,6 +46,6 @@ public class Baptism implements Events{
         System.out.println("Do you want desert? ");
         Desert = scn.nextLine();
 
-        scn.close();
+        scn.close();//commit
     }
 }

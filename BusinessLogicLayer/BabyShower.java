@@ -38,6 +38,6 @@ public class BabyShower implements Events{
         System.out.println("Do you want the preset Baby shower snack menu? ");
         BabyShowerBouquet = scn.nextLine();
 
-        scn.close();
+        scn.close();//commit 
     }
 }

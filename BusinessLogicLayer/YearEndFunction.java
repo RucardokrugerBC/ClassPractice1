@@ -1,9 +1,9 @@
 package BusinessLogicLayer;
 import java.util.*;
 
-public class BirthDay implements Events{
+public class YearEndFunction implements Events{
     
-    String eventType = "BirthDay";
+    String eventType = "Year-end Function";
     String eventDateandTime;
     String eventAddress;
     String eventTheme;

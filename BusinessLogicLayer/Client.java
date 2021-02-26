@@ -22,7 +22,7 @@ public class Client {
 
         System.out.println("Enter cell number: ");
         cellNumber = nameScanner.nextLine();
-        clientList [2] =cellNumber;
+        clientList [2] = cellNumber;
 
         nameScanner.close();
 

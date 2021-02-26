@@ -7,7 +7,8 @@ public class BirthDay implements Events{
     String eventDateandTime;
     String eventAddress;
     String eventTheme;
-    int eventNumPeople;
+    int numberOfAdults;
+    int numberOfChildren;
     
     //menu
     String adultMeal;
@@ -15,7 +16,7 @@ public class BirthDay implements Events{
     String Desert;
 
 	@Override
-	public void getDetails() 
+	public void getdetails() 
     {
 		
         Scanner scn = new Scanner(System.in);
@@ -25,8 +26,11 @@ public class BirthDay implements Events{
         System.out.println("Address: ");
         eventAddress = scn.nextLine();
 
-        System.out.println("How many people?");
-        eventNumPeople = scn.nextInt();
+        System.out.println("How many adults?");
+        numberOfAdults = scn.nextInt();
+
+        System.out.println("How many children?");
+        numberOfChildren = scn.nextInt();
 
         System.out.println("Do you want a theme?(Yes/No)");
         eventTheme = scn.nextLine();

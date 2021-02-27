@@ -56,9 +56,14 @@ public class BabyShower implements Events{
 	    //Displaying the new Date after addition of Days
 	    System.out.println("This will be the next available slot: "+ newDate);
 
-        if(eventDateandTime >= newDate)
+        if(eventDateandTime => newDate,"Available","Not available")
         {
-            
+            System.out.println("Booking date available.");
+            System.out.println("Event date sucessfully set.");
+        }
+        else
+        {
+            System.out.println("We do not have the date you selected available, please note that you have to place the booking 15 days in advance");
         }
         
         //Get adress Details

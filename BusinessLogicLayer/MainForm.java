@@ -125,20 +125,22 @@ public class MainForm {
                 }
                 
                 break;
-
+                
                 case 2,3,4,5:
                 System.out.println("==================================Menu:=============================");
-                System.out.println("Do you want kids preset menu? ");
+                bool adult_or_child = true;
+
+                System.out.println("Do you want a starter?");
+                if (scn.nextLine() == "yes"){
+                    menu.add("#starter");
+                }
+
+                System.out.println("Do you want kids preset or adult menu? ");
                 if (scn.nextLine() == "yes"){
                     menu.add("#kids-meal");
                 }
         
                 System.out.println("Do you want adult preset menu? ");
-                if (scn.nextLine() == "yes"){
-                    menu.add("#adult-meal");
-                }
-
-                System.out.println("Do you want a starter?");
                 if (scn.nextLine() == "yes"){
                     menu.add("#adult-meal");
                 }

@@ -4,13 +4,13 @@ import java.util.Scanner;
 
 public class Client {
 
+    String name;
+    String surname;
+    String cellNumber;
+
     String[] getClientDetails()
     {
-        String name;
-        String surname;
-        String cellNumber;
         String[] clientList = new String[0];
-
         Scanner nameScanner = new Scanner(System.in);
         System.out.println("Enter name: ");
         name = nameScanner.nextLine();
@@ -28,6 +28,12 @@ public class Client {
 
         return clientList;
 
+    }
+
+    public Client(String name, String surname, String cellNumber) {
+        this.name = name;
+        this.surname = surname;
+        this.cellNumber = cellNumber;
     }
     
 }

@@ -1,5 +1,4 @@
 package BusinessLogicLayer;
-import java.util.*;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -8,9 +7,9 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Scanner;
 
-public class BirthDay implements Events{
+public class BabyShower implements Events{
     
-    String eventType = "BirthDay";
+    String eventType = "Baby Shower";
     String eventDateandTime;
     String eventCity;
     String eventArea;
@@ -21,10 +20,9 @@ public class BirthDay implements Events{
     int numberOfAdults;
     int numberOfChildren;
     
+    
     //menu
-    String adultMeal;
-    String kidsMeal;
-    String Desert;
+    String BabyShowerBouquet;
 
 	@Override
 	public void getdetails() 
@@ -67,7 +65,7 @@ public class BirthDay implements Events{
         {
             System.out.println("We do not have the date you selected available, please note that you have to place the booking 15 days in advance");
         }
-
+        
         //Get adress Details
         System.out.println("City: ");
         eventCity = scn.nextLine();
@@ -91,15 +89,15 @@ public class BirthDay implements Events{
 
 
         System.out.println("==================================Menu:=============================");
-        System.out.println("Do you want kids preset menu? ");
-        adultMeal = scn.nextLine();
+        System.out.println("Do you want the preset Baby shower snack menu? ");
+        BabyShowerBouquet = scn.nextLine();
 
-        System.out.println("Do you want adult preset menu? ");
-        kidsMeal = scn.nextLine();
+        scn.close();//commit 
+    }
 
-        System.out.println("Do you want desert? ");
-        Desert = scn.nextLine();
+    @Override
+    public void getDetails() {
+        // TODO Auto-generated method stub
 
-        scn.close();//commit
     }
 }

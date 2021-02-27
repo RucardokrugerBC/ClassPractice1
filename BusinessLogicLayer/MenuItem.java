@@ -1,8 +1,10 @@
 package BusinessLogicLayer;
 
 public class MenuItem {
-    private String menuItem;
-    private Double cost;
+    private String menuItem; // Either Starter, Main, Dessert or Drinks.
+    private String description; // Describes the meal e.g Fennel salad with blue cheese dressing lol
+    private String mealType; // Could be changed to a boolean, this is just to specify if the meal is for a child or adult
+    private Double cost; // The cost of the meal per person
 
     public String getMenuItem() {
         return menuItem;
@@ -18,8 +20,24 @@ public class MenuItem {
         this.cost =Cost;
     }
 
-    public MenuItem(String MenuItem,Double Cost) {
+    public String getDescription() {
+        return description;
+    }
+    public void setDescription(String Description) {
+        this.description=Description;
+    }
+
+    public String getMealType() {
+        return mealType;
+    }
+    public void setCost(String MealType) {
+        this.mealType =MealType;
+    }
+
+    public MenuItem(String MenuItem,String Description,String MealType, Double Cost) {
         this.menuItem =MenuItem;
+        this.description =Description;
+        this.mealType =MealType;
         this.cost=Cost;
     }
 

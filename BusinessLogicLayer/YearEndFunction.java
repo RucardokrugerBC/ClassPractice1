@@ -8,9 +8,9 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Scanner;
 
-public class BirthDay implements Events{
+public class YearEndFunction implements Events{
     
-    String eventType = "BirthDay";
+    String eventType = "Year-end Function";
     String eventDateandTime;
     String eventCity;
     String eventArea;
@@ -29,6 +29,7 @@ public class BirthDay implements Events{
 	@Override
 	public void getdetails() 
     {
+		
         Scanner scn = new Scanner(System.in);
         System.out.println("Date & Time: ");
         eventDateandTime = scn.nextLine();
@@ -100,6 +101,6 @@ public class BirthDay implements Events{
         System.out.println("Do you want desert? ");
         Desert = scn.nextLine();
 
-        scn.close();//commit
+        scn.close();
     }
 }

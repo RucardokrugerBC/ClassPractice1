@@ -22,12 +22,12 @@ public class Client {
 
         System.out.println("Enter cell number: ");
         cellNumber = nameScanner.nextLine();
-        clientList [2] =cellNumber;
+        clientList [2] = cellNumber;
 
         nameScanner.close();
 
         return clientList;
-
+//commit
     }
 
     public Client(String name, String surname, String cellNumber) {

@@ -6,13 +6,20 @@ import java.util.List;
 public class MenuSelection {
     
     List<MenuItem> items;
-    private int people;
-    public int getPeople()
-    {return people;}
-
-    public void setPeople(int People) {
-        this.people =People;
+    private int numAdults;
+    private int numKids;
+    public int getNumAdults()
+    {return numAdults;}
+    public void setNumAdults(int NumAdults) {
+        this.numAdults =NumAdults;
     }
+
+    public int getNumKids()
+    {return numKids;}
+    public void setNumKids(int NumKids) {
+        this.numKids = NumKids;
+    }
+    
     public MenuSelection() {
         this.items= new ArrayList<MenuItem>();
     }
@@ -27,7 +34,9 @@ public class MenuSelection {
         this.items.remove(item);
     }
 
-    public Double MenuTotal() {
+    public Double MenuTotal() {    //Total and Discount Calculation Method
+        int totalpeople= numAdults+numKids; 
+
         Double sum = 0.00;
         Double total=0.00;
         for(MenuItem item : items)
@@ -36,7 +45,8 @@ public class MenuSelection {
         }
 
         Double discount =sum*0.15;
-        if (people>40) {
+
+        if (totalpeople>40) {
             total = sum-discount;
             return total;
         }

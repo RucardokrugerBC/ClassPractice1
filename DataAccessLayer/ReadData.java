@@ -59,6 +59,8 @@ public class ReadData
       } catch (FileNotFoundException e) {
         System.out.println("An error occurred.");
         e.printStackTrace();
+
+        //This is a test
       }
     }
 }

@@ -2,14 +2,28 @@ package BusinessLogicLayer;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import DataAccessLayer.ReadData;
 import java.util.List;
 
 public class MainForm {
 
-    public List<Events> events = new ArrayList<Events>();
+    public static List<Events> events = new ArrayList<Events>();
+    public static List<Client> client = new ArrayList<Client>();
     public static void main(String[] args) {
         Scanner scn = new Scanner(System.in);
         int Mainoption = 0;
+        ReadData reader = new ReadData();
+        System.out.println("---------START UP---------");
+
+        ////////////////////////////////////Start Up//////////////////////////////////////
+        while (events.size() == 0) {
+            
+            System.out.println("Enter File Name (Hint: Booking");
+            String fileName = scn.nextLine();
+            reader.Read(fileName);
+            events = reader.getEvents();
+            client = reader.getClients();
+        }
 
         while (Mainoption !=4)
         ////////////////////////////////////Main Menu//////////////////////////////////////

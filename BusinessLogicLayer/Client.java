@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Client {
 
+    int clientNum;
     String name;
     String surname;
     String cellNumber;
@@ -30,12 +31,6 @@ public class Client {
 //commit
     }
 
-    public Client(String name, String surname, String cellNumber) {
-        this.name = name;
-        this.surname = surname;
-        this.cellNumber = cellNumber;
-    }
-
     public String getName() {
         return name;
     }
@@ -58,6 +53,21 @@ public class Client {
 
     public void setCellNumber(String cellNumber) {
         this.cellNumber = cellNumber;
+    }
+
+    public Client(int clientNum, String name, String surname, String cellNumber) {
+        this.clientNum = clientNum;
+        this.name = name;
+        this.surname = surname;
+        this.cellNumber = cellNumber;
+    }
+
+    public int getClientNum() {
+        return clientNum;
+    }
+
+    public void setClientNum(int clientNum) {
+        this.clientNum = clientNum;
     }
     
 }

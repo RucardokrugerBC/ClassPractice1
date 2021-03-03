@@ -2,20 +2,45 @@ package DataAccessLayer;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.List;
+import BusinessLogicLayer.*;
 
 
 public class WriteData {
 
-   public void SaveBooking(String name, String surname, String phone,String eventType, String eventDateandTime, String eventCity, String eventArea, String eventStreet,
-   String eventTheme, int numberOfAdults, int numberOfChildren, String menu )
+   public void SaveBooking(List<Events> events)
    {
     try {
         FileWriter myWriter = new FileWriter("Booking.txt");
-        myWriter.write(name+","+surname+","+phone+","+eventType+","+eventDateandTime+","+eventCity+","+eventArea+","+eventStreet+","
-        +eventTheme+","+ numberOfAdults+","+numberOfChildren+","+menu);
+        for (Events event : events) {
+          String menuItems = "";
+          for (MenuItem menuItem : event.getMenu()) {
+            menuItems += "," + menuItem.getMenuItem() + "#" + menuItem.getMealType() + "@" + menuItem.getDescription() + "$" + menuItem.getCost();
+          }
+          System.out.println(event.getClientNum() + "," + event.getEventType() + "," + event.getEventDateandTime() 
+          + "," + event.getEventCity() + "," + event.getEventArea() + "," + event.getEventStreet() 
+          + "," + event.getEventTheme() + "," + event.getNumberOfAdults() + "," + event.getNumberOfChildren()
+          + menuItems);
+        }
         myWriter.close();
-        System.out.println("Successfully wrote to the file.");
-      } catch (IOException e) {
+
+      } 
+      catch (IOException e) {
+        System.out.println("An error occurred.");
+        e.printStackTrace();
+      }
+   }
+
+   public void SaveClients(List<Client> clients)
+   {
+    try {
+        FileWriter myWriter = new FileWriter("Client.txt");
+        for (Client client : clients) {
+          System.out.println(client.getClientNum() + "," + client.getName() + "," + client.getSurname() + "," + client.getCellNumber());
+        }
+        myWriter.close();
+      } 
+      catch (IOException e) {
         System.out.println("An error occurred.");
         e.printStackTrace();
       }

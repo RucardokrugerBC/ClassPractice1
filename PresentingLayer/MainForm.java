@@ -10,6 +10,8 @@ import java.util.Scanner;
 import javax.xml.crypto.Data;
 
 import DataAccessLayer.ReadData;
+import DataAccessLayer.WriteData;
+
 import java.util.List;
 import BusinessLogicLayer.*;
 
@@ -22,15 +24,10 @@ public class MainForm {
         int Mainoption = 0;
         ReadData reader = new ReadData();
 
-        ////////////////////////////////////Start Up//////////////////////////////////////
-        System.out.println("---------START UP---------");
-        while (events.size() == 0) {
-            System.out.println("Enter File Name (Hint: Booking");
-            String fileName = scn.nextLine();
-            reader.Read(fileName);
-            events = reader.getEvents();
-            clients = reader.getClients();
-        }
+        ////////////////////////////////////Grab Data from Reader//////////////////////////////////////
+        reader.Read();
+        events = reader.getEvents();
+        clients = reader.getClients();
 
         while (Mainoption !=4)
         ////////////////////////////////////Main Menu//////////////////////////////////////
@@ -38,20 +35,22 @@ public class MainForm {
         System.out.println("1. Display Bookings");
         System.out.println("2. Display Clients");
         System.out.println("3. Add new booking");
-        System.out.println("4. Exit");
+        System.out.println("4. Edit booking");
+        System.out.println("5. Edit client");
+        System.out.println("6. Edit menu items");
+        System.out.println("7. Exit");
         Mainoption = scn.nextInt();
         System.out.println("\n\n");
-        int count = 1;
 
         switch(Mainoption) {
             case 1:
             System.out.println("---------DISPLAY BOOKINGS---------\n");
-            System.out.println("ID\t\t\tEvent Type\t\t\tDateAndTime\t\t\tCity\t\t\tArea\t\t\tStreet\t\t\tTheme\t\t\t# of Adults\t\t\t# of Children");
+            System.out.println("Client ID\t\t\tEvent Type\t\t\tDateAndTime\t\t\tCity\t\t\tArea\t\t\tStreet\t\t\tTheme\t\t\t# of Adults\t\t\t# of Children");
             
             for (Events event : events) {
-                System.out.println(count + "\t\t\t" + event.getEventType() + "\t\t\t" + event.getEventDateandTime() + "\t\t\t" + event.getEventCity() + "\t\t\t" + event.getEventArea() + "\t\t\t" + event.getEventStreet() + "\t\t\t" + event.getEventTheme() + "\t\t\t" + event.getNumberOfAdults() + event.getNumberOfChildren());
+                System.out.println(event.getClientNum() + "\t\t\t" + event.getEventType() + "\t\t\t" + event.getEventDateandTime() + "\t\t\t" + event.getEventCity() + "\t\t\t" + event.getEventArea() + "\t\t\t" + event.getEventStreet() + "\t\t\t" + event.getEventTheme() + "\t\t\t" + event.getNumberOfAdults() + event.getNumberOfChildren());
                 System.out.println("-------Menu");
-                System.out.println("ID\t\t\tMenu Item\t\t\tDescription\t\t\tType\t\t\tCosts"); 
+                System.out.println("Client ID\t\t\tMenu Item\t\t\tDescription\t\t\tType\t\t\tCosts"); 
                 int countb = 1;
                 for (MenuItem menuItem : event.getMenu()) {
                     System.out.println(countb + "\t\t\t" + menuItem.getMenuItem() + "\t\t\t" + menuItem.getDescription() + "\t\t\t" + menuItem.getMealType() + "\t\t\t" + menuItem.getCost()); 
@@ -59,24 +58,25 @@ public class MainForm {
                 }
             }
             break;
+
             case 2:
-            System.out.println("---------DISPLAY EMPLOYEES---------");
+            System.out.println("---------DISPLAY CLIENTS---------\n");
             System.out.println("Which client? \n");
-            System.out.println("ID\t\t\tName\t\t\tSurname\t\t\tPhone");
+            System.out.println("Client ID\t\t\tName\t\t\tSurname\t\t\tPhone");
             for (Client client : clients) {
-                System.out.println(count + "\t\t\t" + client.getName() + "\t\t\t" + client.getSurname() + "\t\t\t" + client.getCellNumber());
-                count++;
+                System.out.println(client.getClientNum() + "\t\t\t" + client.getName() + "\t\t\t" + client.getSurname() + "\t\t\t" + client.getCellNumber());
             }
 
             break;
+
             case 3:
             System.out.println("---------ADD NEW BOOKING---------");
             System.out.println("Which client? \n");
-            System.out.println("ID\t\t\tName\t\t\tSurname\t\t\tPhone");
+            System.out.println("Client ID\t\t\tName\t\t\tSurname\t\t\tPhone");
             for (Client client : clients) {
-                System.out.println(count + "\t\t\t" + client.getName() + "\t\t\t" + client.getSurname() + "\t\t\t" + client.getCellNumber());
-                count++;
+                System.out.println(client.getClientNum() + "\t\t\t" + client.getName() + "\t\t\t" + client.getSurname() + "\t\t\t" + client.getCellNumber());
             }
+            int clientNum = scn.nextInt();
 
             int option;
             System.out.println("What Type of event is this?");
@@ -209,9 +209,47 @@ public class MainForm {
                         
                             
                     }
-                    events.add(new Events(eventType,eventDateandTime,eventCity,eventArea,eventStreet,eventTheme,numberOfAdults,numberOfChildren));
+                    events.add(new Events(eventType,eventDateandTime,eventCity,eventArea,eventStreet,eventTheme,numberOfAdults,numberOfChildren,clientNum,menu));
                     break;
                         }
+
+                case 4:
+                System.out.println("---------EDIT BOOKING---------\n");
+                System.out.println("Which booking? \n");
+                System.out.println("Client ID\t\t\tEvent Type\t\t\tDateAndTime\t\t\tCity\t\t\tArea\t\t\tStreet\t\t\tTheme\t\t\t# of Adults\t\t\t# of Children");
+                for (Events event : events) {
+                    System.out.println(event.getClientNum() + "\t\t\t" + event.getEventType() + "\t\t\t" + event.getEventDateandTime() + "\t\t\t" + event.getEventCity() + "\t\t\t" + event.getEventArea() + "\t\t\t" + event.getEventStreet() + "\t\t\t" + event.getEventTheme() + "\t\t\t" + event.getNumberOfAdults() + event.getNumberOfChildren());
+                }
+    
+                break;
+
+                case 5:
+                System.out.println("---------EDIT CLIENTS---------\n");
+                System.out.println("Which client? \n");
+                System.out.println("Client ID\t\t\tName\t\t\tSurname\t\t\tPhone");
+                for (Client client : clients) {
+                    System.out.println(client.getClientNum() + "\t\t\t" + client.getName() + "\t\t\t" + client.getSurname() + "\t\t\t" + client.getCellNumber());
+                }
+    
+                break;
+
+                case 6:
+                System.out.println("---------EDIT MENU ITEMS---------\n");
+                System.out.println("ID\t\t\tMenu Item\t\t\tDescription\t\t\tType\t\t\tCosts"); 
+                for (MenuItem menuItem : event.getMenu()) {
+                    System.out.println(countb + "\t\t\t" + menuItem.getMenuItem() + "\t\t\t" + menuItem.getDescription() + "\t\t\t" + menuItem.getMealType() + "\t\t\t" + menuItem.getCost()); 
+                    count++;
+                }
+    
+                break;
+                WriteData write = new WriteData();
+                //Save all info
+                write.SaveBooking(events);
+                write.SaveClients(clients);
+
+                default:
+                
+                break;
         }
 
 

@@ -17,22 +17,12 @@ public class Events {
       String eventTheme;
       int numberOfAdults;
       int numberOfChildren;
+      int clientNum;
 
     //This is a lot more flexible for menu option
       List<MenuItem> menu = new ArrayList<MenuItem>();
 
-      public Events(String eventType, String eventDateandTime, String eventCity, String eventArea, String eventStreet,
-                  String eventTheme, int numberOfAdults, int numberOfChildren, List<MenuItem> menu) {
-            this.eventType = eventType;
-            this.eventDateandTime = eventDateandTime;
-            this.eventCity = eventCity;
-            this.eventArea = eventArea;
-            this.eventStreet = eventStreet;
-            this.eventTheme = eventTheme;
-            this.numberOfAdults = numberOfAdults;
-            this.numberOfChildren = numberOfChildren;
-            this.menu = menu;
-      }
+      
 
       public String getEventType() {
             return eventType;
@@ -106,6 +96,28 @@ public class Events {
             this.menu = menu;
       }
 
+      public int getClientNum() {
+            return clientNum;
+      }
+
+      public void setClientNum(int clientNum) {
+            this.clientNum = clientNum;
+      }
+
+
+      public Events(String eventType, String eventDateandTime, String eventCity, String eventArea, String eventStreet,
+                  String eventTheme, int numberOfAdults, int numberOfChildren, int clientNum, List<MenuItem> menu) {
+            this.eventType = eventType;
+            this.eventDateandTime = eventDateandTime;
+            this.eventCity = eventCity;
+            this.eventArea = eventArea;
+            this.eventStreet = eventStreet;
+            this.eventTheme = eventTheme;
+            this.numberOfAdults = numberOfAdults;
+            this.numberOfChildren = numberOfChildren;
+            this.clientNum = clientNum;
+            this.menu = menu;
+      }
         
 }
     

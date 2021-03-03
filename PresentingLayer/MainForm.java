@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Scanner;
+import java.time.format.DateTimeFormatter;  
+import java.time.LocalDateTime; 
 
 import javax.xml.crypto.Data;
 
@@ -118,8 +120,13 @@ public class MainForm {
 
                 if (option != 6) {
 
-                    System.out.println("Date & Time: ");
-                    DateTime eventDateandTime = scn.nextLine();
+                    
+
+                    DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+                    Calendar cal = Calendar.getInstance();
+                    Date date = cal.getTime();
+                    String todaysdate = dateFormat.format(date);
+                     System.out.println("Today's date : " + todaysdate);
 
                     //Get todays Date
                     Date date = Calendar.getInstance().getTime();  //changed

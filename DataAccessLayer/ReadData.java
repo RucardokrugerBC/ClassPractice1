@@ -12,7 +12,7 @@ public class ReadData
     List<Client> clients = new ArrayList<Client>();
     List<Events> events = new ArrayList<Events>();
 
-    public void Read(String fileName) {
+    public void Read(String fileName) throws InvalidFileName{
       try {
         File myObj = new File(fileName + ".txt");
         Scanner myReader = new Scanner(myObj);
@@ -48,8 +48,7 @@ public class ReadData
         myReader.close();
       } 
       catch (FileNotFoundException e) {
-        System.out.println("Data could not be retrieved.");
-        e.printStackTrace();
+        throw new InvalidFileName("File Not Found");
       }
     }
 

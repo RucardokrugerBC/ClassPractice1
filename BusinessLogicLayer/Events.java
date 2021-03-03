@@ -34,6 +34,78 @@ public class Events {
             this.menu = menu;
       }
 
+      public String getEventType() {
+            return eventType;
+      }
+
+      public void setEventType(String eventType) {
+            this.eventType = eventType;
+      }
+
+      public String getEventDateandTime() {
+            return eventDateandTime;
+      }
+
+      public void setEventDateandTime(String eventDateandTime) {
+            this.eventDateandTime = eventDateandTime;
+      }
+
+      public String getEventCity() {
+            return eventCity;
+      }
+
+      public void setEventCity(String eventCity) {
+            this.eventCity = eventCity;
+      }
+
+      public String getEventArea() {
+            return eventArea;
+      }
+
+      public void setEventArea(String eventArea) {
+            this.eventArea = eventArea;
+      }
+
+      public String getEventStreet() {
+            return eventStreet;
+      }
+
+      public void setEventStreet(String eventStreet) {
+            this.eventStreet = eventStreet;
+      }
+
+      public String getEventTheme() {
+            return eventTheme;
+      }
+
+      public void setEventTheme(String eventTheme) {
+            this.eventTheme = eventTheme;
+      }
+
+      public int getNumberOfAdults() {
+            return numberOfAdults;
+      }
+
+      public void setNumberOfAdults(int numberOfAdults) {
+            this.numberOfAdults = numberOfAdults;
+      }
+
+      public int getNumberOfChildren() {
+            return numberOfChildren;
+      }
+
+      public void setNumberOfChildren(int numberOfChildren) {
+            this.numberOfChildren = numberOfChildren;
+      }
+
+      public List<MenuItem> getMenu() {
+            return menu;
+      }
+
+      public void setMenu(List<MenuItem> menu) {
+            this.menu = menu;
+      }
+
         
 }
     

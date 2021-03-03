@@ -5,6 +5,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Scanner;
 
 import javax.xml.crypto.Data;
@@ -121,7 +122,8 @@ public class MainForm {
                     DateTime eventDateandTime = scn.nextLine();
 
                     //Get todays Date
-                    Date date = Calendar.getInstance().getTime();  
+                    Date date = Calendar.getInstance().getTime();  //changed
+                    
                     DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");  
                     String strDate = dateFormat.format(date);  
 

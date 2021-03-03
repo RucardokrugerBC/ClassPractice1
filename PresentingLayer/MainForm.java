@@ -17,6 +17,7 @@ import BusinessLogicLayer.*;
 
 public class MainForm {
 
+    ////////////////TODO Test everything out please and fix the bugs///////////////////////////
     public static List<Events> events = new ArrayList<Events>();
     public static List<Client> clients = new ArrayList<Client>();
     public static void main(String[] args) {

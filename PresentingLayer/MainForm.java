@@ -129,9 +129,9 @@ public class MainForm {
                      System.out.println("Today's date : " + todaysdate);
 
                     //Get todays Date
-                    Date date = Calendar.getInstance().getTime();  //changed
-                    
-                    DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");  
+                    Date date1 = Calendar.getInstance().getTime();  //changed
+
+                    DateFormat dateFormat2 = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");  
                     String strDate = dateFormat.format(date);  
 
                     //Given Date in String format	  

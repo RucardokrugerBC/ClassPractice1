@@ -176,38 +176,62 @@ public class MainForm {
                     switch(option) {
                         case 1:
                         System.out.println("==================================Menu:=============================");
-                        System.out.println("Do you want the preset Baby shower snack menu? ");
+                        System.out.println("Do you want the preset Baby shower snack menu? (yes/no) ");
                         if (scn.nextLine() == "yes"){
                             menu.add(new MenuItem());
+                            System.out.println("Write Description:");
+                            String description = scn.nextLine();
+                            System.out.println("Cost per unit:");
+                            double costPerUnit = scn.nextDouble();
+                            double totalCost = (numberOfAdults + numberOfChildren) * costPerUnit;
+
+                            String type = MenuOption();
+                            String[] types = type.split(",");
+                            for (String string : types) {
+                                menu.add(MenuItem("Snack",string,description,totalCost));
+                                System.out.println("Menu item added");
+                            }
                         }
                         
                         break;
                         
                         case 2,3,4,5:
                         System.out.println("==================================Menu:=============================");
-                        bool adult_or_child = true;
+                        System.out.println("Do you want starters? (yes/no) ");
+                        if (scn.nextLine() == "yes"){
+                            menu.add(new MenuItem());
+                            System.out.println("Write Description:");
+                            String description = scn.nextLine();
+                            System.out.println("Cost per unit:");
+                            double costPerUnit = scn.nextDouble();
+                            double totalCost = (numberOfAdults + numberOfChildren) * costPerUnit;
 
-                        System.out.println("Do you want a starter?");
-                        if (scn.nextLine() == "yes"){
-                            menu.add("#starter");
+                            String type = MenuOption();
+                            String[] types = type.split(",");
+                            for (String string : types) {
+                                menu.add(MenuItem("Starter",string,description,totalCost));
+                                System.out.println("Menu item added");
+                            }
                         }
 
-                        System.out.println("Do you want kids preset or adult menu? ");
-                        if (scn.nextLine() == "yes"){
-                            menu.add("#kids-meal");
-                        }
-                
-                        System.out.println("Do you want adult preset menu? ");
-                        if (scn.nextLine() == "yes"){
-                            menu.add("#adult-meal");
-                        }
+                        System.out.println("===========");
 
-                        System.out.println("Do you want desert?");
+                        System.out.println("Do you want deserts? (yes/no) ");
                         if (scn.nextLine() == "yes"){
-                            menu.add("#adult-meal");
+                            menu.add(new MenuItem());
+                            System.out.println("Write Description:");
+                            String description = scn.nextLine();
+                            System.out.println("Cost per unit:");
+                            double costPerUnit = scn.nextDouble();
+                            double totalCost = (numberOfAdults + numberOfChildren) * costPerUnit;
+
+                            String type = MenuOption();
+                            String[] types = type.split(",");
+                            for (String string : types) {
+                                menu.add(MenuItem("Desert",string,description,totalCost));
+                                System.out.println("Menu item added");
+                            }
                         }
-                        
-                            
                     }
                     events.add(new Events(eventType,eventDateandTime,eventCity,eventArea,eventStreet,eventTheme,numberOfAdults,numberOfChildren,clientNum,menu));
                     break;
@@ -219,8 +243,9 @@ public class MainForm {
                 System.out.println("Client ID\t\t\tEvent Type\t\t\tDateAndTime\t\t\tCity\t\t\tArea\t\t\tStreet\t\t\tTheme\t\t\t# of Adults\t\t\t# of Children");
                 for (Events event : events) {
                     System.out.println(event.getClientNum() + "\t\t\t" + event.getEventType() + "\t\t\t" + event.getEventDateandTime() + "\t\t\t" + event.getEventCity() + "\t\t\t" + event.getEventArea() + "\t\t\t" + event.getEventStreet() + "\t\t\t" + event.getEventTheme() + "\t\t\t" + event.getNumberOfAdults() + event.getNumberOfChildren());
+                
                 }
-    
+//TODO: code an edit function for bookings. Ask them which booking and then what field and then the change value
                 break;
 
                 case 5:
@@ -230,6 +255,8 @@ public class MainForm {
                 for (Client client : clients) {
                     System.out.println(client.getClientNum() + "\t\t\t" + client.getName() + "\t\t\t" + client.getSurname() + "\t\t\t" + client.getCellNumber());
                 }
+
+//TODO: code an edit function for client. Ask them which client and then what field and then the change value
     
                 break;
 
@@ -240,6 +267,8 @@ public class MainForm {
                     System.out.println(countb + "\t\t\t" + menuItem.getMenuItem() + "\t\t\t" + menuItem.getDescription() + "\t\t\t" + menuItem.getMealType() + "\t\t\t" + menuItem.getCost()); 
                     count++;
                 }
+
+//TODO: code an edit function for menu items. Ask them which menu item and then what field and then the change value
     
                 break;
                 WriteData write = new WriteData();
@@ -254,5 +283,37 @@ public class MainForm {
 
 
         scn.close();//commit 
+    }
+
+    public String MenuOption() {
+        
+        String type = "";
+        while (type == "") {
+        Scanner scn = new Scanner(System.in);
+        System.out.println("\nWhat type of menu?");
+        System.out.println("1. Adult");
+        System.out.println("2. Kids");
+        System.out.println("3. Both");
+        int decision = scn.nextInt();
+
+        switch(decision) {
+            case 1:
+            type = "Adult";
+            break;
+
+            case 2:
+            type = "Kids";
+            break;
+
+            case 3:
+            type = "Kids,Adult";
+            break;
+            }
+
+            scn.close();
+        }
+        return type;
+        
+        
     }
 }

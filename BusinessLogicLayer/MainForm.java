@@ -1,5 +1,8 @@
+package BusinessLogicLayer;
+
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.List;
 
 public class MainForm {
 
@@ -8,7 +11,7 @@ public class MainForm {
         Scanner scn = new Scanner(System.in);
         int Mainoption = 0;
 
-        while (option !=4)
+        while (Mainoption !=4)
         ////////////////////////////////////Main Menu//////////////////////////////////////
         System.out.println("---------MAIN MENU---------");
         System.out.println("1. Display Bookings");
